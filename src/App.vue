@@ -2,13 +2,18 @@
   <div id="app">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/about">About</router-link>
+      <router-link to="/admin">Admin</router-link> |
+      <router-link to="/questionnaire">Questionnaire</router-link>
     </div>
     <router-view/>
   </div>
 </template>
 
 <style lang="scss">
+@import "./assets/css/custom.scss";
+@import "../node_modules/bootstrap/scss/bootstrap.scss";
+@import "./assets/css/login.css";
+
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;

@@ -1,10 +1,5 @@
 # app-questionnaire-vue
 
-## Project setup
-```
-npm install
-```
-
 ### Compiles and hot-reloads for development
 ```
 npm run serve
@@ -14,16 +9,10 @@ npm run serve
 ```
 npm run build
 ```
+### Mercredi 23/10/2019
+Réalisé :
+Création du projet
+Création du dépot git et du dépot github.io
 
-### Run your tests
-```
-npm run test
-```
-
-### Lints and fixes files
-```
-npm run lint
-```
-
-### Customize configuration
-See [Configuration Reference](https://cli.vuejs.org/config/).
+Objectif :
+Créer la page d'accueil
