@@ -13,6 +13,7 @@
 @import "./assets/css/custom.scss";
 @import "../node_modules/bootstrap/scss/bootstrap.scss";
 @import "./assets/css/login.css";
+@import "./assets/css/style.css";
 
 #app {
   font-family: 'Avenir', Helvetica, Arial, sans-serif;

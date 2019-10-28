@@ -2,64 +2,72 @@
   <div class="container">
     <div class="card card-login mx-auto text-center bg-light">
       <div class="card-header mx-auto bg-light">
-        <span> <img alt="Vue logo" src="../assets/logo-eev-sas.png"> </span><br/>
+          <h2 f-black> S'enregistrer </h2>
       </div>
       <div class="card-body">
-        <form action="" method="post">
           <div class="input-group form-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
-            <input type="text" name="nom" class="form-control" placeholder="Nom ...">
+            <input type="text" name="nom" class="form-control" placeholder="Nom ..." v-model="nom">
           </div>
 
           <div class="input-group form-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-user"></i></span>
             </div>
-            <input type="text" name="prenom" class="form-control" placeholder="Prénom ...">
+            <input type="text" name="prenom" class="form-control" placeholder="Prénom ..." v-model="prenom">
           </div>
 
           <div class="input-group form-group">
             <div class="input-group-prepend">
               <span class="input-group-text"><i class="fas fa-industry"></i></span>
             </div>
-            <input type="text" name="societe" class="form-control" placeholder="Société ...">
+            <input type="text" name="societe" class="form-control" placeholder="Société ..." v-model="societe">
           </div>
 
           <div class="form-group">
-            <button type="submit" name="btn" class="btn btn-outline-danger float-right login_btn">Commencer</button>
+            <router-link to="/questionnaire" ><button class="btn float-right login_btn" @click="addUser()">Commencer</button></router-link>
           </div>
 
-        </form>
       </div>
     </div>
   </div>
 </template>
 
 <script>
+import PouchDB from 'pouchdb'
+
+var db = new PouchDB('app-questionnaire-vue')
+var url = 'http://127.0.0.1:5984/app-questionnaire-vue'
+
 export default {
   name: 'HelloWorld',
   props: {
     msg: String
+  },
+  data () {
+    return {
+      nom: '',
+      prenom: '',
+      societe: ''
+    }
+  },
+  methods: {
+    addUser: function () {
+      var user = {
+        _id: new Date().toISOString(),
+        nom: this.nom,
+        prenom: this.prenom,
+        societe: this.societe
+      }
+      console.log(user)
+      db.put(user).then(function (doc) {
+        console.log(doc)
+        console.log('test')
+      })
+      db.replicate.to(url)
+    }
   }
 }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style scoped lang="scss">
-h3 {
-  margin: 40px 0 0;
-}
-ul {
-  list-style-type: none;
-  padding: 0;
-}
-li {
-  display: inline-block;
-  margin: 0 10px;
-}
-a {
-  color: #42b983;
-}
-</style>
