@@ -25,7 +25,6 @@
             </div>
             <input type="text" name="societe" class="form-control" placeholder="Société ..." v-model="societe">
           </div>
-
           <div class="form-group">
             <router-link to="/questionnaire" ><button class="btn float-right login_btn" @click="addUser()">Commencer</button></router-link>
           </div>
@@ -56,16 +55,15 @@ export default {
   methods: {
     addUser: function () {
       var user = {
-        _id: new Date().toISOString(),
+        _id: 'user - ' + this.prenom[0] + this.nom,
         nom: this.nom,
         prenom: this.prenom,
         societe: this.societe
       }
-      console.log(user)
       db.put(user).then(function (doc) {
         console.log(doc)
-        console.log('test')
       })
+      localStorage.username = this.prenom[0] + this.nom
       db.replicate.to(url)
     }
   }
