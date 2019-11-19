@@ -41,10 +41,6 @@ var db = new PouchDB('app-questionnaire-vue')
 var url = 'http://127.0.0.1:5984/app-questionnaire-vue'
 
 export default {
-  name: 'HelloWorld',
-  props: {
-    msg: String
-  },
   data () {
     return {
       nom: '',
@@ -55,16 +51,36 @@ export default {
   methods: {
     addUser: function () {
       var user = {
-        _id: 'user - ' + this.prenom[0] + this.nom,
+        identifiant: this.prenom[0] + this.nom,
         nom: this.nom,
         prenom: this.prenom,
         societe: this.societe
       }
-      db.put(user).then(function (doc) {
-        console.log(doc)
+      // On récupère le doc
+      db.get(`Users`).then((doc, err) => {
+        // Si l'utilisateur n'existe pas encore
+        if (!this.existUser(user.identifiant, doc)) {
+          // On ajoute nos données
+          doc.users.push(user)
+          // On l'ajoute dans DB
+          db.put(doc)
+          // On sauvegarde
+          db.replicate.to(url)
+        }
+      }).catch((err) => {
+        console.error(err)
       })
       localStorage.username = this.prenom[0] + this.nom
-      db.replicate.to(url)
+    },
+    existUser: function (identifiant, doc) {
+      let found = false
+      for (let idUser in doc.users) {
+        let user = doc.users[idUser]
+        if (user.identifiant === identifiant) {
+          found = true
+        }
+      }
+      return found
     }
   }
 }

@@ -22,7 +22,9 @@
             <button class="btn float-right" @click="nextQuestion">Suivant</button>
           </div>
           <div v-if="nbQ == 9">
-            <button class="btn btn-info float-right" @click="validerQuestion">Valider</button>
+            <router-link to="/" >
+              <button class="btn btn-info float-right" @click="validerQuestion">Valider</button>
+            </router-link>
           </div>
         </div>
       </div>
@@ -30,6 +32,7 @@
 </template>
 <script>
 import PouchDB from 'pouchdb'
+import json from '../assets/question.json'
 
 var db = new PouchDB('app-questionnaire-vue')
 var url = 'http://127.0.0.1:5984/app-questionnaire-vue'
@@ -39,17 +42,16 @@ export default {
   data () {
     return {
       nbQ: 0,
-      questionData: [],
+      questionData: json.questions,
       answer: [],
       username: null
     }
   },
-  created: function () {
-    this.loadQuestion()
-  },
   mounted () {
-    if (localStorage.username) {
+    if (localStorage.username && localStorage.username !== 'undefined' && localStorage.username !== undefined) {
       this.username = localStorage.username
+    } else {
+      this.$router.push('/')
     }
   },
   methods: {
@@ -64,24 +66,31 @@ export default {
       }
     },
     validerQuestion: function () {
-      let score = []
+      let score = {
+        'result_list': [],
+        'score': null
+      }
+      let scoreTotal = 0
       for (let i = 0; i < 9; i++) {
         let right = this.answer[i] === this.questionData[i].trueVal
         let result = { 'id': i,
           'right': right }
-        score.push(result)
+        if (right) scoreTotal++
+        score.result_list.push(result)
       }
-      console.log(score)
-    },
-    loadQuestion: function () {
-      var db = new PouchDB('app-questionnaire-vue')
-      // var url = 'http://127.0.0.1:5984/app-questionnaire-vue'
-      db.get('ee5b4987da3042ea0ec39e743d001b1f').then((doc, err) => {
-        let data = doc.questions
-        console.log(data)
-        this.questionData = data
-      }).catch((err) => {
-        console.log('ERRROR : ' + err)
+      score.score = scoreTotal
+      // On récupère le doc
+      db.get(`Users`).then((doc, err) => {
+        doc.users.map((user) => {
+          if (user.identifiant === this.username) {
+            if (user.result === undefined) user.result = []
+            user.result.push(score)
+          }
+        })
+        // On l'ajoute dans DB
+        db.put(doc).then(function (doc) { })
+        // On sauvegarde
+        db.replicate.to(url)
       })
     }
   }
