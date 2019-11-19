@@ -4,195 +4,199 @@
   "questions": [
     {
       "id": 1,
-      "question": "Cocher la couleur rouge : ",
+      "question": "Le nombre de décès en France par an d'origine électrique est de l'ordre de ",
       "trueVal": 2,
       "reponses": [
         {
           "id": 1,
-          "value": "jaune"
+          "value": "Quelques centaines"
         },
         {
           "id": 2,
-          "value": "rouge"
+          "value": "Quelques dizaines"
         },
         {
           "id": 3,
-          "value": "bleu"
+          "value": "Quelques milliers"
         }
       ]
     },
     {
       "id": 2,
-      "question": "Why are you running ? ",
+      "question": "Un choc électrique n'entraînant pas la mort s'appelle ",
       "trueVal": 3,
       "reponses": [
         {
           "id": 1,
-          "value": "Courri c'est bien"
+          "value": "Une électrocution"
         },
         {
           "id": 2,
-          "value": "AHHHHHHAAAAAAAAAAAAAAAHAHAHAH"
+          "value": "Une électromagnétisation"
         },
         {
           "id": 3,
-          "value": "ouch"
+          "value": "Une électrisation"
         }
       ]
     },
     {
       "id": 3,
-      "question": "Quel est le nom de mon rat ? ",
+      "question": "Lorsque l'on entre en contact avec le courant électrique via des pièces conductrices nues sous tension, on dit que le contact est",
       "trueVal": 1,
       "reponses": [
         {
           "id": 1,
-          "value": "Gafi"
+          "value": "direct"
         },
         {
           "id": 2,
-          "value": "Bernard"
+          "value": "instantané"
         },
         {
           "id": 3,
-          "value": "Perochal"
+          "value": "indirect"
         }
       ]
     },
     {
       "id": 4,
-      "question": "Quel est ma taille préférée ? ",
-      "trueVal": 3,
+      "question": "Lorsque l'on entre en contact avec le courant électrique avec une pièce devenue active accidentellement par défaut d'isolement, on dit que le contact est",
+      "trueVal": 1,
       "reponses": [
         {
           "id": 1,
-          "value": "UI"
+          "value": "indirect"
         },
         {
           "id": 2,
-          "value": "NON"
+          "value": "direct"
         },
         {
           "id": 3,
-          "value": "ALED"
+          "value": "différé"
         }
       ]
     },
     {
       "id": 5,
-      "question": "Site web préféré ? ",
+      "question": "Parmi les 3 moyens de protection contre les contacts directs, un est faux: lequel ?",
       "trueVal": 3,
       "reponses": [
         {
           "id": 1,
-          "value": "Youtube"
+          "value": "Isoler les conducteurs sous tension"
         },
         {
           "id": 2,
-          "value": "Twitch"
+          "value": "Mettre en place des obstacles entre les conducteurs sous tension et les personnes"
         },
         {
           "id": 3,
-          "value": "You..."
+          "value": "Employer une très basse tension de sécurité"
         }
       ]
     },
     {
       "id": 6,
-      "question": "Catégorie préférée ? ",
+      "question": "Parmi les 3 moyens de protection contre les contacts indirects, un est faux: lequel ?",
       "trueVal": 3,
       "reponses": [
         {
           "id": 1,
-          "value": "SF"
+          "value": "Mettre en terre des masses avec coupure automatique de l'alimentation"
         },
         {
           "id": 2,
-          "value": "Action"
+          "value": "Choisir des matériaux à double isolation"
         },
         {
           "id": 3,
-          "value": "Autre"
+          "value": "Utiliser une alimentation en continu"
         }
       ]
     },
     {
       "id": 7,
-      "question": "6+9 ? ",
+      "question": "Parmi les 3 facteurs influençant les dommages corporels, un seul est faux: lequel ?",
       "trueVal": 1,
       "reponses": [
         {
           "id": 1,
-          "value": "15"
+          "value": "La température ambiante"
         },
         {
           "id": 2,
-          "value": "17"
+          "value": "L'intensité du courant"
         },
         {
           "id": 3,
-          "value": "69"
+          "value": "Le temps de passage du courant"
         }
       ]
     },
     {
       "id": 8,
-      "question": "Qui a dirigé l'URSS de 1920 à 1953 ? ",
+      "question": "Les premiers atteintes du corps humain suite au passage d'un courant électrique d'intensité de 20 à 30 mA se situent au niveau:",
       "trueVal": 2,
       "reponses": [
         {
           "id": 1,
-          "value": "Trotski"
+          "value": "du cerveau"
         },
         {
           "id": 2,
-          "value": "Lénine"
+          "value": "des muscles respiratoires"
         },
         {
           "id": 3,
-          "value": "Staline"
+          "value": "du coeur"
         },
         {
           "id": 4,
-          "value": "Molotov"
+          "value": "des extrémités"
         }
       ]
     },
     {
       "id": 9,
-      "question": "Date de la 1ère GM ",
-      "trueVal": 1,
+      "question": "La peau sèche constitue une barrière au passage du courant jusqu'à:",
+      "trueVal": 4,
       "reponses": [
         {
           "id": 1,
-          "value": "1914 - 1918"
+          "value": "Celà ne constitue pas une sécurité"
         },
         {
           "id": 2,
-          "value": "1924-1938"
+          "value": "220 V"
         },
         {
           "id": 3,
-          "value": "aujourd'ui à maintenant"
+          "value": "110 V"
+        },
+        {
+          "id": 4,
+          "value": "50V"
         }
       ]
     },
     {
       "id": 10,
-      "question": "Combien y a t-il de genres ? ",
-      "trueVal": 1,
+      "question": "La résistance du corps humain au passage du courant électrique varie avec:",
+      "trueVal": 3,
       "reponses": [
         {
           "id": 1,
-          "value": "2"
+          "value": "l'âge"
         },
         {
           "id": 2,
-          "value": "3"
+          "value": "l'heure du dernier repas"
         },
         {
           "id": 3,
-          "value": "beaucoup"
+          "value": "l'épaisseur de la peau"
         }
       ]
     }

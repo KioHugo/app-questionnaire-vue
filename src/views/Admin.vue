@@ -2,11 +2,13 @@
   <div class="container">
     <div class="text-center bg-light rounded p-3">
           <h2 f-black> Espace admin </h2>
-          <div v-if="users.length > 0">
-            <div v-for="user in users" v-bind:key='user.identifiant'>
-              Utilisateur : {{user.identifiant}}
-              <div v-for="result in user.result" v-bind:key='result'>
-                Score de : {{result.score}}
+          <div class="mt-5 row" v-if="users.length > 0">
+            <div class="col-lg-3 user-admin-div" v-for="user in users" v-bind:key='user.identifiant'>
+              <div class="user-admin-div-header" > Utilisateur : {{user.identifiant}} </div>
+              <div class="user-admin-div-body" >
+                <div  class="" v-for="result in user.result" v-bind:key='result'>
+                  Score de : {{result.score}}
+                </div>
               </div>
             </div>
           </div>

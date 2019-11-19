@@ -19,3 +19,5 @@ synchro la bdd avec le questionnaire
 Objectif :
 Sauvegarder les infos du questionnaire
 Faire la page admin
+
+Réalisé : tout

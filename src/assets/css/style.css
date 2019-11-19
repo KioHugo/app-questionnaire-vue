@@ -14,3 +14,26 @@ html, body{
 [f-black]{
   color: black !important;
 }
+
+.mt-5{ margin-top:5px; }
+.user-admin-div{
+  margin-left: 15px;
+  padding: 0 0 0 0 !important;
+}
+.user-admin-div-header{
+  background-color:rgba(0,0,0,.1);
+  border: 1px solid rgba(0,0,0,.125);
+  border-radius: 5px 5px 0px 0px;
+}
+.user-admin-div-body{
+  border: 1px solid rgba(0,0,0,.125);
+  border-top:0px;
+  border-radius: 0px 0px 5px 5px;
+  min-height:150px;
+  max-height:150px;
+  overflow-y: auto;
+}
+
+.b{
+  background-color:blue;
+}

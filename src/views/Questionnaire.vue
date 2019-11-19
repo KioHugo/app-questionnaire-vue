@@ -1,6 +1,6 @@
 <template>
   <div class="Questionnaire container" id="main">
-      <div class="row quest-div" v-if="questionData.length > 0">
+      <div class="row quest-div" v-if="questionData.length > 0 && !finished">
         <div class="col-lg-12" >
           <h2>Question {{nbQ + 1}}</h2>
           <br/>
@@ -12,8 +12,6 @@
             <label :for="response.id">{{response.value}}</label>
           </div>
         </div>
-        {{answer}}
-        {{username}}
         <div class="col-lg-12 vbottom" >
           <div v-if=" nbQ > 0 && nbQ <= 9">
             <button class="btn float-left" @click="precQuestion">Précédent</button>
@@ -22,11 +20,13 @@
             <button class="btn float-right" @click="nextQuestion">Suivant</button>
           </div>
           <div v-if="nbQ == 9">
-            <router-link to="/" >
               <button class="btn btn-info float-right" @click="validerQuestion">Valider</button>
-            </router-link>
           </div>
         </div>
+      </div>
+      <div class="quest-div justify-content-center" v-if="finished" >
+        <div> <h1>Vous avez terminé le questionnaire !</h1> </div>
+        <div> Votre score est de : {{score}} </div>
       </div>
   </div>
 </template>
@@ -44,7 +44,9 @@ export default {
       nbQ: 0,
       questionData: json.questions,
       answer: [],
-      username: null
+      username: null,
+      finished: false,
+      score: 0
     }
   },
   mounted () {
@@ -92,6 +94,8 @@ export default {
         // On sauvegarde
         db.replicate.to(url)
       })
+      this.score = scoreTotal
+      this.finished = true
     }
   }
 }
