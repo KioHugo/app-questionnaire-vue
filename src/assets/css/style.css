@@ -1,7 +1,7 @@
 html, body{
   width:100%;
   height:100%;
-  background: linear-gradient(#e66465, #9198e5) no-repeat !important;
+  background: linear-gradient(#e66465, #9198e5);
 }
 .quest-div{
   background : #F8F9FA;
@@ -36,4 +36,19 @@ html, body{
 
 .b{
   background-color:blue;
+}
+
+.pseudal{
+  position: absolute;
+  right:0;
+  margin-right: 30px;
+  margin-top:15px;
+  border-radius:5px;
+  background:linear-gradient(#E7E7E7, #C2C2C2);
+  padding:8px 20px 8px 20px;
+}
+
+.error{
+  color:red;
+  font-weight:bold;
 }

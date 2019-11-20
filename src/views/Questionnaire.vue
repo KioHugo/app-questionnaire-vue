@@ -49,8 +49,9 @@ export default {
       score: 0
     }
   },
+  // On récupère le username s'il est stocké sinon on renvoie sur login
   mounted () {
-    if (localStorage.username && localStorage.username !== 'undefined' && localStorage.username !== undefined) {
+    if (localStorage.username && localStorage.username !== undefined) {
       this.username = localStorage.username
     } else {
       this.$router.push('/')
@@ -73,6 +74,7 @@ export default {
         'score': null
       }
       let scoreTotal = 0
+      // On calcul le score de l'user
       for (let i = 0; i < 9; i++) {
         let right = this.answer[i] === this.questionData[i].trueVal
         let result = { 'id': i,
@@ -83,6 +85,7 @@ export default {
       score.score = scoreTotal
       // On récupère le doc
       db.get(`Users`).then((doc, err) => {
+        // On cherche l'user et on ajoute son score
         doc.users.map((user) => {
           if (user.identifiant === this.username) {
             if (user.result === undefined) user.result = []

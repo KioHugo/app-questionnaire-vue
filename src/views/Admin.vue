@@ -33,6 +33,7 @@ export default {
   created: function () {
     this.loadUsers()
   },
+  // On récupère l'identifiant si c'est HCaillaud (connexion admin)
   mounted () {
     if (localStorage.username && localStorage.username === 'HCaillaud') {
       this.identifiant = localStorage.username
@@ -41,6 +42,7 @@ export default {
     }
   },
   methods: {
+    // On récupère tous les users
     loadUsers: function () {
       db.get('Users').then((doc, err) => {
         let data = doc.users

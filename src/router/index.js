@@ -6,9 +6,15 @@ import Admin from '../views/Admin.vue'
 
 Vue.use(VueRouter)
 
+// Définition des routes
 const routes = [
   {
     path: '/',
+    name: 'home',
+    component: Home
+  },
+  {
+    path: '/login',
     name: 'home',
     component: Home
   },
