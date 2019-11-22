@@ -20,6 +20,14 @@ L'application [app-questionnaire-vue](http://kiohugo.github.io) nécessite quelq
 }
 ```
 
+###### Pour vous connecter en tant qu'admin :
+```
+Nom: Caillaud
+Prénom: Hugo
+Société: peut importe
+```
+Attention à bien respecter les majuscules
+
 Vous pouvez maintenant utiliser l'application de questionnaire !
 
 #### Oct 23, 2019
